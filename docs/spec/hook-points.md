@@ -78,9 +78,9 @@ Publishing and discovery are out of scope for this draft. The intent is to exten
 
 1. **Scope of installation.** Is a plugin installed per server by the operator, per account by its holder, or both? Levels 0 and 3 lean per server; level 2 leans per account.
 2. **Per-account service identity.** `atproto-proxy` addresses a service by DID and service id. How a per-account plugin is addressed that way is unresolved.
-3. **Acting for an account.** Level 2 could use OAuth permission sets issued to the host, or a narrower host-only grant. Neither is designed.
+3. **Acting for an account.** Level 2 could use OAuth permission sets issued to the host, or a narrower host-only grant. On 2026-11-21 the owner chose OAuth, with each plugin as its own client and upstream `repo:` and `space:` scopes; [#21](https://github.com/subculture-collective/pirs/issues/21) prototypes it. See [Spaces and the Pirs roadmap](../spaces.md).
 4. **Failure at level 3.** If a deciding plugin times out, failing open defeats a validation rule and failing closed lets a plugin take writes down. Proposed: the manifest declares one, and the operator can override it.
-5. **Spaces.** Permissioned data adds per-space repositories and a separate sync path. Events and record capabilities for spaces are not covered.
+5. **Spaces.** Permissioned data adds per-space repositories and a separate sync path that does not use the event stream. Events and record capabilities for spaces are not covered yet; [#36](https://github.com/subculture-collective/pirs/issues/36) specifies them from the alpha. [Spaces and the Pirs roadmap](../spaces.md) records the assessment.
 6. **Ordering across hooks.** When several level 3 plugins claim the same hook, the order and the combination rule are undefined.
 
 ## 8. What has been run
